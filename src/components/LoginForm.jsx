@@ -41,7 +41,7 @@ export default function LoginForm() {
                     </div>)}
 
                     <Link href={"/register"}>
-                        Don't have an account? Register here
+                        Don&apos;t have an account? Register here
                     </Link>
                 </form>
             </div>
