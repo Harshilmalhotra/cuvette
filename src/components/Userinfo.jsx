@@ -13,18 +13,18 @@ export default function Userinfo() {
     }
 
     return (
-        <div className="grid place-items-center h-screen">
+        <div className="grid place-items-center">
             <div>
-                <h1>User Info</h1>
-                <div>
-                    Name: <span>{session?.user?.name}</span>
-                </div>
-                <div>
-                    Email: <span>{session?.user?.email}</span>
-                </div>
-                <div>
-                    Role: <span>{session?.user?.role}</span>
-                </div>
+                
+                
+                    Hi  <span>{session?.user?.name}</span> !
+                
+                
+                    {/* Email: <span>{session?.user?.email}</span> */}
+                
+                <br/>
+                    Role: <span>{session?.user?.role} </span> 
+                
 
                 <button onClick={handleSignOut} className="border-red-500 border-2">
                     SignOut

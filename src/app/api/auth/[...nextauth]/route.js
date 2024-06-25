@@ -1,12 +1,10 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-import {connectMongoDB} from "D:/Web Dev/cuvette/src/lib/mongodb.js";
+import { connectMongoDB } from "/src/lib/mongodb.js";
 
 import bcrypt from "bcryptjs";
 
-import User from "D:/Web Dev/cuvette/src/models/user.js";
-
-
+import User from "/src/models/user.js";
 
 export const authOptions = {
     providers: [
@@ -14,7 +12,7 @@ export const authOptions = {
             name: "credentials",
             credentials: {},
             async authorize(credentials) {
-                const { email, password,role } = credentials;
+                const { email, password } = credentials;
 
                 try {
                     await connectMongoDB();
@@ -34,7 +32,20 @@ export const authOptions = {
             },
         }),
     ],
-    
+
+    callbacks: {
+        async jwt({ token, user }) {
+            if (user) {
+                token.role = user.role;
+            }
+            return token;
+        },
+
+        async session({ session, token }) {
+            session.user.role = token.role;
+            return session;
+        }
+    }, // Added missing comma here
     session: {
         strategy: "jwt",
     },
