@@ -6,13 +6,15 @@ import bcrypt from "bcryptjs";
 
 import User from "D:/Web Dev/cuvette/src/models/user.js";
 
+
+
 export const authOptions = {
     providers: [
         CredentialsProvider({
             name: "credentials",
             credentials: {},
             async authorize(credentials) {
-                const { email, password } = credentials;
+                const { email, password,role } = credentials;
 
                 try {
                     await connectMongoDB();
@@ -32,6 +34,7 @@ export const authOptions = {
             },
         }),
     ],
+    
     session: {
         strategy: "jwt",
     },
