@@ -12,9 +12,9 @@ export default function AdminNavbar(){
             
             <div className='flex gap-x-3'>
                 
-                <Link href="/dashboard">User Dashboard</Link>
-                
-                <Link href={"/addJob"}>Add Job</Link>
+                <Link href="/dashboard">User Dashboard |</Link>
+                <Link href="/console">Admin Console |</Link>
+                <Link href={"/addJob"}>Add Job </Link>
 
             </div>
             <Userinfo />

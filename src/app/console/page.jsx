@@ -7,10 +7,7 @@ export default function Console(){
         <>
         <AdminNavbar/>
         <AdminList/>
-        <AdminList/>
-        <AdminList/>
-        <AdminList/>
-       
+        
         </>
     )
 }
