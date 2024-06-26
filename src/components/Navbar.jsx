@@ -6,11 +6,11 @@ export default function Navbar() {
             <div>
                 <h1 className='text-2xl'>Cuvette</h1>
             </div>
-            <div className='flex gap-x-3'>
+            {/* <div className='flex gap-x-3'>
                 <Link href="/dashboard">Dashboard</Link>
                 <Link href="/console">Admin</Link>
 
-            </div>
+            </div> */}
             <Userinfo />
         </div>
     );

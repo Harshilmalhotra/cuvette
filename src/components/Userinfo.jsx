@@ -2,6 +2,8 @@
 import { signOut } from 'next-auth/react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation'; 
+import { FaPowerOff } from "react-icons/fa";
+
 export default function Userinfo() {
     const { data: session } = useSession();
     const router = useRouter();
@@ -13,23 +15,24 @@ export default function Userinfo() {
     }
 
     return (
-        <div className="grid place-items-center">
-            <div>
+        <div className="grid align-items-center">
+            
                 
-                
-                    Hi  <span>{session?.user?.name}</span> !
-                
+                <div className='flex items-center gap-1'>
+                    <button onClick={handleSignOut} className="text-red-500 text-xl">
+                <FaPowerOff />
+                </button>
+
+                     Hi  <span> {session?.user?.name}</span> !
+                    </div>
                 
                     {/* Email: <span>{session?.user?.email}</span> */}
                 
-                <br/>
-                    Role: <span>{session?.user?.role} </span> 
+                    {/* <br/>Role: <span>{session?.user?.role} </span>  */}
                 
 
-                <button onClick={handleSignOut} className="border-red-500 border-2">
-                    SignOut
-                </button>
-            </div>
+                
+            
         </div>
     );
 }
