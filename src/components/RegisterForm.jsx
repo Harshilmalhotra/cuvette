@@ -7,6 +7,7 @@ export default function RegisterForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const role = "user" ; // ["user", "admin"]
+    const japply = [] ; 
     const [error, setError] = useState("");
     const router = useRouter(); 
 
@@ -36,7 +37,7 @@ export default function RegisterForm() {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ name, email, password, role})
+                body: JSON.stringify({ name, email, password, role, japply})
             });
             if (res.ok) {
                 console.log("User registered");

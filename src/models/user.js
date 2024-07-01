@@ -1,4 +1,10 @@
 import mongoose, { Schema } from "mongoose";
+const japplySchema = new mongoose.Schema({
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+  
+    
+  });
 
 const userSchema = new Schema({
     name: {
@@ -17,7 +23,8 @@ const userSchema = new Schema({
     role: {
         type: String,
         required: true
-    }
+    },
+    japply:[japplySchema]
 }, 
 { timestamps: true }
 );

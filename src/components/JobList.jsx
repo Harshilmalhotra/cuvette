@@ -13,7 +13,7 @@ const getJobs = async () => {
     }
 };
 
-export default async function AdminList() {
+export default async function JobList() {
     const data = await getJobs();
     const { jobs = [] } = data;  // Destructure and default to an empty array
 
@@ -32,7 +32,7 @@ export default async function AdminList() {
                         {job._id}
                     </div>
 
-                   
+        
                 </div>
             )) : (
                 <p>No jobs available.</p>

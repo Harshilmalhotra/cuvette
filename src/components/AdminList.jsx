@@ -20,7 +20,7 @@ const getJobs = async () => {
 export default async function AdminList() {
     const data = await getJobs();
     const { jobs = [] } = data;  // Destructure and default to an empty array
-
+    console.log("data.length", data.length);
     // console.log("jobs", data);
     return (
         <>

@@ -12,7 +12,7 @@ export const authOptions = {
             name: "credentials",
             credentials: {},
             async authorize(credentials) {
-                const { email, password } = credentials;
+                const {_id, email, password } = credentials;
 
                 try {
                     await connectMongoDB();
@@ -37,14 +37,17 @@ export const authOptions = {
         async jwt({ token, user }) {
             if (user) {
                 token.role = user.role;
+                token.id = user._id;
             }
             return token;
         },
 
         async session({ session, token }) {
             session.user.role = token.role;
+            session.user.id = token.id;
             return session;
         }
+        
     }, // Added missing comma here
     session: {
         strategy: "jwt",
